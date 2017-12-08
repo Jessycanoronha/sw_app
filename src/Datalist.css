@@ -1,0 +1,17 @@
+ul.datalist {
+    list-style: none;
+    font-size: 17px;
+    width: 50%;
+    display: flex;
+    align-self: center;
+    flex-flow: column nowrap;
+}
+
+ul.datalist li {
+    margin-bottom: 10px;
+}
+
+ul.datalist li span.datatype {
+    font-weight: bold;
+    text-transform: uppercase;
+} 

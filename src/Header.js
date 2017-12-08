@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import './App.css';
+import './Header.css';
 
 class Header extends Component {
 	render() {
 		return (
 			<div class="header">
-				<h1>Nome do planeta</h1>
+				<h1>nome do planeta</h1>
 			</div>
 		);
 	}

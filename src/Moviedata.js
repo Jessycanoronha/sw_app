@@ -4,7 +4,7 @@ import './App.css';
 class Moviedata extends Component {
 	render() {
 		return (
-			<h3>Aparece em <span class="movie-number">X</span> filmes</h3>
+			<h3>Featured in <span class="movie-number">N</span> films</h3>
 		);
 	}
 }

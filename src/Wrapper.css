@@ -1,0 +1,13 @@
+.wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+.innerContent {
+  width: 50%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-self: center;
+  border: 2px solid #000;
+}

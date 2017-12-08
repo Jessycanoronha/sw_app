@@ -1,0 +1,15 @@
+.header {
+    font-family: 'Star Jedi', sans-serif;
+    background: #000;
+}
+
+.header h1 {
+    color: #fff308;
+    font-weight: normal;
+    letter-spacing: 1px;
+    text-align: center;
+    font-size: 35px;
+    margin: 0;
+    line-height: 2;
+    padding-bottom: 12px;
+}
