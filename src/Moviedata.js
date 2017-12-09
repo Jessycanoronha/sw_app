@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import './App.css';
+import './Moviedata.css';
 
 class Moviedata extends Component {
 	render() {
 		return (
-			<h3>Featured in <span class="movie-number">N</span> films</h3>
+			<h3 class="moviedata">Featured in <span class="movie-number">N</span> films</h3>
 		);
 	}
 }
