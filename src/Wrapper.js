@@ -6,6 +6,15 @@ import Button from './Button';
 import './Wrapper.css';
 
 class Wrapper extends Component {
+	constructor(props) {
+		super();
+		this.state = {
+			name: undefined,
+			climate: undefined,
+			terrain: undefined,
+			films: undefined,
+		};
+	}
 	render() {
 		return (
 			<div class="wrapper">
