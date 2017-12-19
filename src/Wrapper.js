@@ -9,11 +9,8 @@ class Wrapper extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			name: undefined,
-			climate: undefined,
-			terrain: undefined,
-			films: undefined,
-			random: null,
+			data: undefined,
+			randomNumber: null,
 		};
 		this.btnClick = this.btnClick.bind(this);
 	}
@@ -22,18 +19,33 @@ class Wrapper extends Component {
 	max = Math.floor(61);
 
 	btnClick() {
-		this.setState({random: Math.floor(Math.random() * (this.max - this.min + 1)) + this.min});
+		this.setState({randomNumber: Math.floor(Math.random() * (this.max - this.min + 1)) + this.min});
 	};
+
+	componentWillMount() {
+		this.setState({randomNumber: Math.floor(Math.random() * (this.max - this.min + 1)) + this.min});
+	}
+
+	componentDidMount() {
+		fetch('https://swapi.co/api/planets/'+this.state.randomNumber)
+		.then((res) => res.json())
+		.then((d) => {
+			console.log(d)
+			this.setState({
+				data: d
+			})
+		})
+	}
 
 	render() {
 		return (
-			<div class="wrapper">
-				<div class="innerContent">
+			<div className="wrapper">
+				<div className="innerContent">
 					<Header />
 					<Datalist />
 					<Moviedata />
 				</div>
-				<div class="btn-wrapper">
+				<div className="btn-wrapper">
 					<Button btnClick={this.btnClick} />
 				</div>
 			</div>
