@@ -1,0 +1,10 @@
+.btn {
+    background: black;
+    border: none;
+    color: #FFF308;
+    font-family: 'Star Jedi', sans-serif;
+    padding: 6px 10px 10px;
+    font-size: 20px;
+    margin-top: 10px;
+    cursor: pointer;
+}

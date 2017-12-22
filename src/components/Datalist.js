@@ -1,21 +1,22 @@
 import React, { Component } from 'react';
-import './Datalist.css';
+import '../css/Datalist.css';
 
 class Datalist extends Component {
 	render() {
+		let popConvert = parseInt(this.props.planetPop, 10).toLocaleString()
 		return (
 			<ul className="datalist">
 				<li>
 					<span className="datatype">Population: </span>
-					200.000
+					{popConvert}
 				</li>
 				<li>
 					<span className="datatype">Climate: </span>
-					Arid
+					{this.props.planetClimate}
 				</li>
 				<li>
 					<span className="datatype">Terrain: </span>
-					Desert
+					{this.props.planetTerrain}
 				</li>
 			</ul>
 		);

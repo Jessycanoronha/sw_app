@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import './Header.css';
+import '../css/Header.css';
 
 class Header extends Component {
 	render() {
 		return (
 			<div className="header">
-				<h1>nome do planeta</h1>
+				<h1>{this.props.planetName}</h1>
 			</div>
 		);
 	}
