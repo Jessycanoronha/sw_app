@@ -3,7 +3,12 @@ import '../css/Datalist.css';
 
 class Datalist extends Component {
 	render() {
-		let popConvert = parseInt(this.props.planetPop, 10).toLocaleString()
+		let popConvert = null;
+		if (this.props.planetPop === "unknown") {
+			popConvert = "unknown"	
+		} else {
+			popConvert = parseInt(this.props.planetPop, 10).toLocaleString()
+		}
 		return (
 			<ul className="datalist">
 				<li>

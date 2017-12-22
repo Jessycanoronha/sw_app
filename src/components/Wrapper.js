@@ -19,40 +19,40 @@ class Wrapper extends Component {
 	max = Math.floor(61);
 
 	btnClick() {
+		console.log("numero resetado: "+this.state.randomNumber)
 		this.setState({randomNumber: Math.floor(Math.random() * (this.max - this.min + 1)) + this.min});
-		console.log(this.state.randomNumber)
-		fetch('https://swapi.co/api/planets/'+this.state.randomNumber)
-		.then((res) => res.json())
-		.then((d) => {
-			this.setState({data: d});
-		})
+		this.fetchAPI().then(data => this.setState({data}))
+	}
+
+	async fetchAPI() {
+		let request = new Request('https://swapi.co/api/planets/'+this.state.randomNumber)
+		let data = await fetch(request).then(response => response.json())
+		console.log(data)
+		return data
 	}
 
 	componentWillMount() {
 		this.setState({randomNumber: Math.floor(Math.random() * (this.max - this.min + 1)) + this.min});
 	}
 
-	componentDidMount() {
-		fetch('https://swapi.co/api/planets/'+this.state.randomNumber)
-		.then((res) => res.json())
-		.then((d) => {
-			this.setState({data: d});
-		})
+	async componentDidMount() {
+		this.fetchAPI().then(data => this.setState({data}))
+		this.setState({randomNumber: Math.floor(Math.random() * (this.max - this.min + 1)) + this.min});
 	}
 
 	render() {
 		let planetData = this.state.data;
-		let movieData = [this.state.data.films];
-		let movieCount = movieData.length - 1;
+		let movieData = this.state.data.films || [];
+		let movieArray = movieData.length;
 		return (
 			<div className="wrapper">
 				<div className="innerContent">
 					<Header planetName={planetData.name} />
 					<Datalist planetPop={planetData.population} planetClimate={planetData.climate} planetTerrain={planetData.terrain} />
-					<Moviedata planetFilms={movieCount}/>
+					<Moviedata planetFilms={movieArray}/>
 				</div>
 				<div className="btn-wrapper">
-					<Button btnClick={this.btnClick} dataAPI={this.dataAPI}/>
+					<Button btnClick={this.btnClick}/>
 				</div>
 			</div>
 		);
